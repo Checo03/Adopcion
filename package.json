@@ -17,6 +17,7 @@
     "firebase": "^10.12.2",
     "firebase-functions": "^5.0.1",
     "nodemailer": "^6.9.14",
-    "nodemon": "^3.1.0"
+    "nodemon": "^3.1.0",
+    "sweetalert2": "^11.12.0"
   }
 }
