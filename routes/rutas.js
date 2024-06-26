@@ -54,6 +54,28 @@ router.post('/send-email', (req, res) => {
   });
 });
 
+
+router.post('/send-email1', (req, res) => {
+  const { email } = req.body;
+
+  console.log(`Email: ${email}`);
+
+  let mailOptions = {
+      from: 'rics35dax@gmail.com',
+      to: 'firebaseequipotw@gmail.com',  
+      subject: 'Solicitud de Información',
+      text: `El correo ${email} solicito información: "que sea informacion acerca de la adopcion"`
+  };
+
+  transporter.sendMail(mailOptions, (error, info) => {
+      if (error) {
+          console.error('Error al enviar el correo:', error);
+          return res.status(500).send(error.toString());
+      }
+      res.status(200).json({ message: 'Correo enviado: ' + info.response });
+    });
+});
+
 // Endpoint to fetch data and generate QR
 router.get('/get-data', async (req, res) => {
   try {
